@@ -1,8 +1,7 @@
-@(user: models.user.User, activeSection: String)
-@views.html.components.userDropdown(Some(user))
+@(activeSection: String)
 
 <header>
-  @views.html.layout.themeStyles(user.preferences.theme)
+  @views.html.layout.themeStyles("#f57c00")
 
   <nav id="topnav" class="theme">
     <a href="@controllers.routes.HomeController.home()" class="brand-logo center">@util.Config.projectName</a>
@@ -26,9 +25,6 @@
     </ul>
 
     <ul class="right hide-on-small-only nav-name">
-      <li><a class="dropdown-button" href="@routes.ProfileController.view()" data-activates="dropdown-user">
-        @user.username <i id="user-dropdown-toggle" class="fa @models.template.Icons.dropdownToggle right"></i>
-      </a></li>
     </ul>
 
     <ul class="search-input input-field right">
@@ -45,5 +41,4 @@
 <ul id="dropdown-explore" class="dropdown-content">
   <!-- Start model list routes -->
   <!-- End model list routes -->
-  <li><a href="@controllers.admin.user.routes.UserController.list()"><i class="fa @models.template.Icons.user"></i> Users</a></li>
 </ul>

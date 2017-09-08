@@ -17,7 +17,7 @@ object SettingQueries extends BaseQueries[Setting]("settings", "setting_values")
   def search = Search
 
   case class Update(s: Setting) extends Statement {
-    override val name = s"user.search.update"
+    override val name = s"settings.update"
     override val sql = updateSql(Seq("v"))
     override val values = Seq[Any](s.value, s.key.toString)
   }

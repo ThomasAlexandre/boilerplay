@@ -12,7 +12,7 @@ class MetricsController @javax.inject.Inject() (override val app: Application) e
     val call = app.ws.url("metrics", url).withHttpHeaders("Accept" -> JSON).get()
     call.map { json =>
       render {
-        case Accepts.Html() => Ok(views.html.admin.metrics(request.identity, json.body))
+        case Accepts.Html() => Ok(views.html.admin.metrics(json.body))
         case Accepts.Json() => Ok(json.body).as(JSON)
       }
     }

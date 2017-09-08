@@ -1,7 +1,6 @@
 package models
 
 import better.files._
-import com.mohiva.play.silhouette.impl.authenticators.CookieAuthenticatorSettings
 import play.api.{Environment, Mode}
 import services.notification.SlackConfig
 import util.metrics.MetricsConfig
@@ -18,20 +17,4 @@ class Configuration @javax.inject.Inject() (val cnf: play.api.Configuration, val
     username = cnf.get[String]("notification.slack.username"),
     iconUrl = cnf.get[String]("notification.slack.iconUrl")
   )
-
-  val cookieAuthSettings = {
-    import scala.concurrent.duration._
-    val cfg = cnf.get[play.api.Configuration]("silhouette.authenticator.cookie")
-
-    CookieAuthenticatorSettings(
-      cookieName = cfg.get[String]("name"),
-      cookiePath = cfg.get[String]("path"),
-      secureCookie = cfg.get[Boolean]("secure"),
-      httpOnlyCookie = true,
-      useFingerprinting = cfg.get[Boolean]("useFingerprinting"),
-      cookieMaxAge = Some(cfg.get[Int]("maxAge").seconds),
-      authenticatorIdleTimeout = Some(cfg.get[Int]("idleTimeout").seconds),
-      authenticatorExpiry = cfg.get[Int]("expiry").seconds
-    )
-  }
 }

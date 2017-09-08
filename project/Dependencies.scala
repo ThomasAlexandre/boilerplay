@@ -23,14 +23,6 @@ object Dependencies {
     val testkit = "com.typesafe.akka" %% "akka-testkit" % version % "test"
   }
 
-  object Authentication {
-    private[this] val version = "5.0.0"
-    val silhouette = "com.mohiva" %% "play-silhouette" % version
-    val hasher = "com.mohiva" %% "play-silhouette-password-bcrypt" % version
-    val persistence = "com.mohiva" %% "play-silhouette-persistence" % version
-    val crypto = "com.mohiva" %% "play-silhouette-crypto-jca" % version
-  }
-
   object Database {
     val postgres = "com.github.mauricio" %% "postgresql-async" % "0.2.21" //exclude("io.netty", "netty-all")
   }
