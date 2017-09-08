@@ -31,7 +31,6 @@ object Server {
     Seq(
       Akka.actor, Akka.logging, Play.filters, Play.guice, Play.ws, Play.json, Play.cache,
       Database.mysql, GraphQL.sangria, GraphQL.playJson, GraphQL.circe,
-      Authentication.silhouette, Authentication.hasher, Authentication.persistence, Authentication.crypto,
       WebJars.jquery, WebJars.fontAwesome, WebJars.materialize, WebJars.moment, WebJars.mousetrap,
       Utils.csv, Utils.scalaGuice, Utils.commonsIo, Utils.betterFiles, Akka.testkit, Play.test, Testing.scalaTest
     )
@@ -46,7 +45,6 @@ object Server {
     resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/",
     libraryDependencies ++= dependencies,
 
-    scalaJSProjects := Seq(Client.client),
     routesGenerator := InjectedRoutesGenerator,
     externalizeResources := false,
 
@@ -75,7 +73,7 @@ object Server {
     ).enablePlugins(
       SbtWeb, play.sbt.PlayScala, JavaAppPackaging, diagram.ClassDiagramPlugin,
       UniversalPlugin, LinuxPlugin, DebianPlugin, RpmPlugin, DockerPlugin, WindowsPlugin, JDKPackagerPlugin
-    ).settings(serverSettings: _*).aggregate(projectToRef(Client.client)).settings(Packaging.settings: _*)
+    ).settings(serverSettings: _*).settings(Packaging.settings: _*)
 
     Shared.withProjects(ret, Seq(Shared.sharedJvm, Utilities.metrics))
   }

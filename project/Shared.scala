@@ -63,7 +63,7 @@ object Shared {
     libraryDependencies += "org.scala-js" %%% "scalajs-java-time" % "0.2.2"
   )
 
-  lazy val sharedJs = shared.js.enablePlugins(ScalaJSWeb)
+  //lazy val sharedJs = shared.js.enablePlugins(ScalaJSWeb)
 
   lazy val sharedJvm = shared.jvm
 }

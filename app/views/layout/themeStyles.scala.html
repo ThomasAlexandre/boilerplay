@@ -1,39 +1,39 @@
-@(theme: models.template.Theme)<style type="text/css">
-  .tabs .tab a { color: @theme.color; }
-  .tabs .tab a:hover { color: @theme.color; }
-  .tabs .tab.disabled a { color: @theme.color; }
-  .tabs .indicator { background-color: @theme.color; }
+@(color: String)<style type="text/css">
+  .tabs .tab a { color: @color; }
+  .tabs .tab a:hover { color: @color; }
+  .tabs .tab.disabled a { color: @color; }
+  .tabs .indicator { background-color: @color; }
 
-  ul#main-menu li.search .search-wrapper input#search:focus { border-bottom: 2px solid @theme.color !important; }
+  ul#main-menu li.search .search-wrapper input#search:focus { border-bottom: 2px solid @color !important; }
 
   [type="radio"]:checked+label:after {
-    border-color: @theme.color;
-    background-color: @theme.color;
+    border-color: @color;
+    background-color: @color;
   }
 
   .input-field label {
     color: #000;
   }
   .input-field input[type=text]:focus + label, .input-field input[type=password]:focus + label, .input-field input[type=email]:focus + label {
-    color: @theme.color;
+    color: @color;
   }
   .input-field input[type=text]:focus, .input-field input[type=password]:focus, .input-field input[type=email]:focus {
-    border-bottom: 1px solid @theme.color;
-    box-shadow: 0 1px 0 0 @theme.color;
+    border-bottom: 1px solid @color;
+    box-shadow: 0 1px 0 0 @color;
   }
   .input-field .prefix.active {
-    color: @theme.color;
+    color: @color;
   }
 
   .dropdown-content.select-dropdown span {
-    color: @theme.color !important;
+    color: @color !important;
   }
 
   .theme {
-    background-color: @theme.color !important;
+    background-color: @color !important;
   }
   .theme-text {
-    color: @theme.color !important;
+    color: @color !important;
   }
   .theme-text.active {
     color: #ffffff !important;
@@ -43,22 +43,22 @@
   }
 
   .collection .collection-item.active {
-    background-color: @theme.color;
+    background-color: @color;
   }
 
   [type="checkbox"]:checked + label:before {
-    border-right: 2px solid @theme.color;
-    border-bottom: 2px solid @theme.color;
+    border-right: 2px solid @color;
+    border-bottom: 2px solid @color;
   }
 
   .dropdown-content li > a, .dropdown-content li > span {
-    color: @theme.color;
+    color: @color;
   }
 
   .tree li .node:hover+ul li::after,
   .tree li .node:hover+ul li::before,
   .tree li .node:hover+ul::before,
   .tree li .node:hover+ul ul::before{
-    border-color: @theme.color;
+    border-color: @color;
   }
 </style>

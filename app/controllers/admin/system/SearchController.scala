@@ -26,7 +26,7 @@ class SearchController @javax.inject.Inject() (override val app: Application, se
     }
 
     resultF.map { results =>
-      Ok(views.html.admin.explore.searchResults(q, results, request.identity))
+      Ok(views.html.admin.explore.searchResults(q, results))
     }
   }
 
@@ -43,12 +43,7 @@ class SearchController @javax.inject.Inject() (override val app: Application, se
     val uuidSearches = Seq.empty[Future[Seq[Html]]]
     // End uuid searches
 
-    val userF = app.userService.getByPrimaryKey(id).map {
-      case Some(u) => Seq(views.html.admin.user.userSearchResult(u, s"User [${u.username}] matched id [$q]."))
-      case None => Nil
-    }
-
-    Future.sequence(Seq(userF) ++ uuidSearches).map(_.flatten)
+    Future.sequence(uuidSearches).map(_.flatten)
   }
 
   private[this] def searchString(q: String)(implicit timing: TraceData) = {
@@ -56,10 +51,6 @@ class SearchController @javax.inject.Inject() (override val app: Application, se
     val stringSearches = Seq.empty[Future[Seq[Html]]]
     // End string searches
 
-    val userF = app.userService.searchExact(q = q, orderBys = Nil, limit = Some(10), offset = None).map { users =>
-      users.map(u => views.html.admin.user.userSearchResult(u, s"User [${u.username}] matched [$q]."))
-    }
-
-    Future.sequence(Seq(userF) ++ stringSearches).map(_.flatten)
+    Future.sequence(stringSearches).map(_.flatten)
   }
 }

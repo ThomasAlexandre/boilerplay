@@ -10,14 +10,14 @@ class AdminController @javax.inject.Inject() (override val app: Application) ext
   import app.contexts.webContext
 
   def index = withSession("admin.index", admin = true) { implicit request => implicit td =>
-    Future.successful(Ok(views.html.admin.index(request.identity)))
+    Future.successful(Ok(views.html.admin.index()))
   }
 
   def explore = withSession("admin.explore", admin = true) { implicit request => implicit td =>
-    Future.successful(Ok(views.html.admin.explore.explore(request.identity)))
+    Future.successful(Ok(views.html.admin.explore.explore()))
   }
 
   def status = withSession("admin.status", admin = true) { implicit request => implicit td =>
-    Future.successful(Ok(views.html.admin.status(request.identity)))
+    Future.successful(Ok(views.html.admin.status()))
   }
 }

@@ -1,6 +1,6 @@
-@(user: models.user.User)(
+@()(
     implicit request: Request[AnyContent], session: Session, flash: Flash, traceData: util.tracing.TraceData
-)@traceData.logViewClass(getClass)@layout.admin(user, "", util.Config.projectName + " Administration") {
+)@traceData.logViewClass(getClass)@layout.admin("", util.Config.projectName + " Administration") {
   <ul class="collection with-header">
     <li class="collection-header">
       <h5>@util.Config.projectName Administration</h5>

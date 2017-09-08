@@ -52,6 +52,4 @@ class SettingsService @javax.inject.Inject() (tracing: TracingService) {
       value
     }
   }
-
-  def allowRegistration = asBool(SettingKey.AllowRegistration)
 }

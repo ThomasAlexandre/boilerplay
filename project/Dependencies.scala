@@ -23,14 +23,6 @@ object Dependencies {
     val testkit = "com.typesafe.akka" %% "akka-testkit" % version % "test"
   }
 
-  object Authentication {
-    private[this] val version = "5.0.0"
-    val silhouette = "com.mohiva" %% "play-silhouette" % version
-    val hasher = "com.mohiva" %% "play-silhouette-password-bcrypt" % version
-    val persistence = "com.mohiva" %% "play-silhouette-persistence" % version
-    val crypto = "com.mohiva" %% "play-silhouette-crypto-jca" % version
-  }
-
   object Database {
     val mysql = "com.github.mauricio" %% "mysql-async" % "0.2.21"
   }

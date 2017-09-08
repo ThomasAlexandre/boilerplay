@@ -18,6 +18,6 @@ class SchemaController @javax.inject.Inject() (override val app: Application) ex
   }
 
   def voyager() = withSession("schema.render", admin = true) { implicit request => implicit td =>
-    Future.successful(Ok(views.html.admin.graphql.voyager(request.identity)))
+    Future.successful(Ok(views.html.admin.graphql.voyager()))
   }
 }

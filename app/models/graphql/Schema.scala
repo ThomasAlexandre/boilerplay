@@ -2,7 +2,6 @@ package models.graphql
 
 import models.sandbox.SandboxSchema
 import models.settings.SettingsSchema
-import models.user.UserSchema
 import sangria.execution.deferred.DeferredResolver
 import sangria.schema._
 
@@ -13,9 +12,9 @@ object Schema {
     // End model fetchers
   }
 
-  val resolver = DeferredResolver.fetchers(UserSchema.userByPrimaryKeyFetcher +: UserSchema.userByRoleFetcher +: modelFetchers: _*)
+  val resolver = DeferredResolver.fetchers()
 
-  val baseQueryFields = UserSchema.queryFields ++ SettingsSchema.queryFields ++ SandboxSchema.queryFields
+  val baseQueryFields = SettingsSchema.queryFields ++ SandboxSchema.queryFields
 
   val modelQueryFields = {
     // Start model query fields

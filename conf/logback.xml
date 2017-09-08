@@ -28,7 +28,6 @@
   <logger name="application" level="INFO" />
   <logger name="boilerplay" level="INFO" />
 
-  <logger name="com.mohiva" level="INFO" />
   <logger name="com.github.mauricio.async.db" level="WARN" />
 
   <root level="ERROR">

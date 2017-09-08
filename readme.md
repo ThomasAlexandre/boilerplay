@@ -7,7 +7,7 @@ It provides a good starting point for whatever you want to build.
 
 * Local sign-in, profile, and change password support.
 * Role based security, with normal and admin roles.
-* Full admin suite for user management, reporting, and real-time session observation.
+* Full admin suite for reporting, and real-time session observation.
 * GraphQL schema and query interface, with shared queries and mutations.
 * Scala source that is shared between the client and server via Scala.js.
 * Websocket-driven actor support, with monitoring and tracing.
@@ -43,9 +43,6 @@ $ open http://127.0.0.1:9000
 ```
 
 As the application starts, it will create database tables and seed data.
-
-The first account to sign up is created as an Admin, all subsequent users will have a normal user role.
-
 
 ## Projects
 
